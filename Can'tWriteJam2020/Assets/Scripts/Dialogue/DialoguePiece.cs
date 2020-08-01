@@ -6,21 +6,21 @@ using UnityEngine;
 [Serializable]
 public class DialoguePiece 
 {
-    public string name;
+    public string characterName;
     public string text;
     public string portraitSpriteName;
     // TODO add transition information here
 
     public DialoguePiece(string name, string text, string portraitSpriteName)
     {
-        this.name = name;
+        this.characterName = name;
         this.text = text;
         this.portraitSpriteName = portraitSpriteName;
     }
 
     public DialoguePiece()
     {
-        this.name = "";
+        this.characterName = "";
         this.text = "";
         this.portraitSpriteName = "";
     }

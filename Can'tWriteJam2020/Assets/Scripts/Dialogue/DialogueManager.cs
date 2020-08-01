@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public int maxCharactersPerLine = 40;
+    public int maxCharactersPerLine = 52;
     public float charDelay = 0.5f;
     public GameObject dialogueStuff;
     public Text nameText;
@@ -75,7 +75,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ScrollingText(DialoguePiece dialoguePiece, float delay)
     {
-        nameText.text = dialoguePiece.name;
+        nameText.text = dialoguePiece.characterName;
         dialogueIsTyping = true;
         dialogueText.text = "";
         int currChar = 0;
@@ -91,7 +91,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public static List<DialoguePiece> ParseText(TextAsset rawFile)
+    public List<DialoguePiece> ParseText(TextAsset rawFile)
     {
         List<DialoguePiece> dialogue = new List<DialoguePiece>();
         string[] lines = Regex.Split(rawFile.text, "\r\n|\n|\r");
@@ -109,21 +109,38 @@ public class DialogueManager : MonoBehaviour
             // TODO: choices in dialogue.
             string[] pieces = trimmedLine.Split('|');
             DialoguePiece dp = new DialoguePiece();
-            dp.text = pieces[1];
+            dp.text = FixLongLines(pieces[1]);
             if (pieces[0].Contains("=="))
             {
                 string[] nameAndPortrait = Regex.Split(pieces[0], "==");
-                dp.name = nameAndPortrait[0];
+                dp.characterName = nameAndPortrait[0];
                 dp.portraitSpriteName = nameAndPortrait[1];
             }
             else
             {
-                dp.name = pieces[0];
+                dp.characterName = pieces[0];
                 dp.portraitSpriteName = "";
             }
             dialogue.Add(dp);
         }
 
         return dialogue;
+    }
+
+    private string FixLongLines(string originalLine)
+    {
+        string fixedLine = "";
+        int currChars = 0;
+        foreach(string word in originalLine.Split(' '))
+        {
+            currChars += word.Length + 1;
+            if (currChars > maxCharactersPerLine)
+            {
+                fixedLine += '\n';
+                currChars -= maxCharactersPerLine;
+            }
+            fixedLine += word + ' ';
+        }
+        return fixedLine;
     }
 }

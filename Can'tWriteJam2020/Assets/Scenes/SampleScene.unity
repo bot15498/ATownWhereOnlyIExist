@@ -978,8 +978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ee118fd699db342b24fe28fa80386e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCharactersPerLine: 40
-  charDelay: 0.05
+  maxCharactersPerLine: 60
+  charDelay: 0.02
   dialogueStuff: {fileID: 1826316224}
   nameText: {fileID: 223675695}
   dialogueText: {fileID: 1806529522}
@@ -1419,7 +1419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1826316225
 RectTransform:
   m_ObjectHideFlags: 0

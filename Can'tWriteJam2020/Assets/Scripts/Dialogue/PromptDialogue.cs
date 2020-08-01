@@ -23,7 +23,7 @@ public class PromptDialogue : MonoBehaviour
         // TODO if loading takes a while, might want to move loading text to be async with loading the level.
         if(toSay != null)
         {
-            dps = DialogueManager.ParseText(toSay);
+            dps = dm.ParseText(toSay);
         }
         else
         {
