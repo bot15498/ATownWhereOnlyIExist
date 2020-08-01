@@ -1,0 +1,17 @@
+﻿
+# blank lines are ignored
+# lines with # infront are comments.
+
+
+# below will make someone say something.
+A Cool Name|I have a very cool name.
+A Cool Name|Long lines will automatically be cut and go to the next line in the dialogue box because yuki made it.
+A Cool Name|But yuki isn't smart enough to make super long text scroll, so try to keep sentences small enough to fit in one box.
+A Cool Name|or make it stretch across two boxes naturally in the dialogue file.
+
+|thinking scenes can be done by omitting the name. Probably. 
+
+A Cool Name==happy|This will make the portrait change.
+A Cool Name==normal|Or at least it should.
+
+# end

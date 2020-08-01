@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public bool canMove = true;
 
     private Rigidbody2D rb2d;
 
@@ -17,7 +18,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(canMove)
+        {
+            Move();
+        }
     }
 
     private void Move()
